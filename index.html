@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <title>Small Talk Club | Find your words</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#main" aria-label="Small Talk Club home">
+        <span class="brand-mark" aria-hidden="true">s<span>.</span></span>
+        <span>small talk club</span>
+      </a>
+      <div class="privacy-pill"><span class="privacy-dot"></span> Your chats stay yours</div>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-rule"></span> YOUR POCKET CONVERSATION COACH</p>
+        <h1 id="page-title">Know what you<br />want to <em>say.</em></h1>
+        <p class="intro-copy">A little help finding the words. Bring the chat, keep your voice.</p>
+        <div class="intro-aside" aria-hidden="true">
+          <span class="scribble">no perfect replies required</span>
+          <span class="scribble-arrow">↘</span>
+        </div>
+      </section>
+
+      <section class="workbench" aria-label="Reply assistant">
+        <div class="input-column">
+          <div class="section-heading">
+            <span class="step-number">01</span>
+            <div><h2>Bring the conversation</h2><p>Screenshot it, or paste the messages.</p></div>
+          </div>
+
+          <div class="upload-zone" id="upload-zone">
+            <input id="image-input" type="file" accept="image/*" hidden />
+            <div class="upload-empty" id="upload-empty">
+              <span class="upload-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="2.5"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m20.5 15-5-5L5 20.5"/></svg></span>
+              <div class="upload-copy"><strong>Drop a screenshot here</strong><span>or <button class="text-button" id="choose-image" type="button">choose a file</button> · JPG, PNG</span></div>
+            </div>
+            <div class="preview-wrap" id="preview-wrap" hidden>
+              <img id="preview-image" alt="Preview of the uploaded chat screenshot" />
+              <button class="remove-image" id="remove-image" type="button" aria-label="Remove screenshot" title="Remove screenshot">×</button>
+            </div>
+          </div>
+
+          <button class="ocr-button" id="ocr-button" type="button" disabled>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3m8 0h3a1 1 0 0 1 1 1v3m0 8v3a1 1 0 0 1-1 1h-3m-8 0H5a1 1 0 0 1-1-1v-3M7.5 9h9m-9 3h9m-9 3h5"/></svg>
+            <span>Read screenshot</span>
+          </button>
+          <p class="ocr-status" id="ocr-status" role="status" aria-live="polite">Screenshot text is read on this device.</p>
+
+          <label class="field-label" for="conversation">THE CHAT SO FAR <span>edit anything OCR gets wrong</span></label>
+          <textarea id="conversation" rows="5" placeholder="Your conversation will show up here. You can also paste it in." spellcheck="true"></textarea>
+
+          <label class="field-label thought-label" for="intent">WHAT DO YOU WANT TO SAY? <span>optional, but helpful</span></label>
+          <textarea id="intent" class="intent-input" rows="2" placeholder="Your honest thought, in your own words..."></textarea>
+          <p class="privacy-note"><span aria-hidden="true">✳</span> Screenshot and chat text stay in your browser. Nothing gets uploaded.</p>
+        </div>
+
+        <div class="reply-column">
+          <div class="section-heading reply-heading">
+            <span class="step-number step-yellow">02</span>
+            <div><h2>Make it sound like you</h2><p>Pick a vibe. Tweak anything that doesn't fit.</p></div>
+          </div>
+
+          <fieldset class="tone-picker">
+            <legend class="field-label">YOUR VIBE</legend>
+            <div class="tone-options">
+              <label class="tone-option"><input type="radio" name="tone" value="natural" checked /><span>Natural</span></label>
+              <label class="tone-option"><input type="radio" name="tone" value="warm" /><span>Warm</span></label>
+              <label class="tone-option"><input type="radio" name="tone" value="playful" /><span>Playful</span></label>
+            </div>
+          </fieldset>
+
+          <button class="generate-button" id="generate-button" type="button">
+            <span>Find my words</span><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <p class="generate-status" id="generate-status" role="status" aria-live="polite"></p>
+
+          <div class="suggestions" id="suggestions" aria-live="polite" aria-label="Reply suggestions">
+            <div class="empty-state" id="empty-state">
+              <span class="empty-doodle" aria-hidden="true">✳</span>
+              <h3>Start with what they said.</h3>
+              <p>Add the chat on the left and I'll help you find a way in. No mind reading. No weird lines.</p>
+              <span class="empty-caption">REAL YOU &gt; PERFECT YOU</span>
+            </div>
+            <div id="suggestion-list" class="suggestion-list" hidden></div>
+          </div>
+          <p class="coach-note" id="coach-note" hidden>These are conversation starters, not magic words. Edit them until they feel like yours.</p>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>small talk club</span><span>Made for the moments you overthink.</span><span class="footer-star">✳</span></footer>
+    </main>
+  </body>
+</html>
